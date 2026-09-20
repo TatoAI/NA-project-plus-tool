@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { DocumentList } from "@/components/document-list";
+import { DraftList } from "@/components/draft-list";
+import { DraftStudio } from "@/components/draft-studio";
 import { SearchBox } from "@/components/search-box";
 import { UploadForm } from "@/components/upload-form";
 import { createClient } from "@/lib/supabase/server";
@@ -22,6 +24,13 @@ export default async function DashboardPage() {
         <UploadForm />
         <DocumentList projectId={null} />
         <SearchBox />
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Quick draft</h2>
+        <p className="text-sm text-zinc-600">Uses your general context only. Open a project to draft with its context too.</p>
+        <DraftStudio />
+        <DraftList projectId={null} />
       </section>
 
       <section className="space-y-3">

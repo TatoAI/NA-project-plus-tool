@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DocumentList } from "@/components/document-list";
+import { DraftList } from "@/components/draft-list";
+import { DraftStudio } from "@/components/draft-studio";
 import { SearchBox } from "@/components/search-box";
 import { UploadForm } from "@/components/upload-form";
 import { createClient } from "@/lib/supabase/server";
@@ -34,6 +36,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         <UploadForm projectId={project.id} />
         <DocumentList projectId={project.id} />
         <SearchBox projectId={project.id} />
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Drafts</h2>
+        <DraftStudio projectId={project.id} />
+        <DraftList projectId={project.id} />
       </section>
     </div>
   );
